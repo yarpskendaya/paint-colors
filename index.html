@@ -1,187 +1,765 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rotstuinlaan Colors</title>
-<style>
-  :root { --bg:#f6f5f2; --card:#fff; --text:#222; --muted:#6b6b66; --line:#dcdad4; }
-  * { box-sizing: border-box; }
-  body { margin:0; padding:24px 16px 48px; background:var(--bg); color:var(--text); font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif; }
-  main { max-width: 1100px; margin: 0 auto; }
-  h1 { font-size: 22px; margin: 0 0 4px; }
-  .note { color: var(--muted); margin: 0 0 20px; max-width: 75ch; }
-  .strip { display:flex; height:90px; border-radius:10px; overflow:hidden; border:1px solid var(--line); margin-bottom:6px; }
-  .strip div { flex:1; display:flex; flex-direction:column; justify-content:flex-end; padding:8px 10px; font-size:13px; font-weight:600; }
-  .strip small { font-weight:400; opacity:.85; }
-  .strip-note { font-size:12px; color:var(--muted); margin:0 0 24px; }
-  section.colour { margin-top:28px; }
-  section.colour h2 { font-size:18px; margin:0; }
-  section.colour .use { color:var(--muted); margin:0 0 10px; }
-  .row { display:flex; gap:14px; overflow-x:auto; padding-bottom:8px; }
-  .card { flex:0 0 190px; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px; }
-  .card.base { border-color:#222; border-width:2px; }
-  .chip { height:100px; border-radius:8px; border:1px solid rgba(0,0,0,.12); }
-  .chip.none { display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:12px; background:repeating-linear-gradient(45deg,#f0eee9,#f0eee9 8px,#e8e6e0 8px,#e8e6e0 16px); }
-  .label { margin-top:8px; font-size:12px; color:var(--muted); }
-  .label b { display:block; color:var(--text); font-size:14px; }
-  .tag { display:inline-block; margin-top:8px; padding:1px 8px; border-radius:999px; font-size:11px; border:1px solid var(--line); }
-  .base-t { background:#222; color:#fff; border-color:#222; }
-  .ral { background:#e8eef9; border-color:#b8c8e8; }
-  .ok { background:#e6f3e6; border-color:#b9dbb9; }
-  .no { background:#fff3d6; border-color:#e8d08a; }
-  .ref { display:block; width:100%; max-width:520px; border-radius:10px; border:1px solid var(--line); margin:0 0 12px; }
-  .src { margin-top:28px; font-size:13px; color:var(--muted); max-width:85ch; }
-  table { border-collapse:collapse; width:100%; font-size:13px; background:var(--card); }
-  th, td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); white-space:nowrap; }
-  th { background:#efede8; }
-  td.n, th.n { text-align:right; }
-  tr.tot td { font-weight:700; }
-  .scroll { overflow-x:auto; border:1px solid var(--line); border-radius:10px; }
-  .facts { margin:0 0 8px; padding-left:18px; }
-  h2.sec { font-size:18px; margin:32px 0 8px; }
-</style>
-</head>
-<body>
-<main>
-  <h1>Rotstuinlaan Colors</h1>
-  <p class="note">Screens vary; the physical swatch wins.</p>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rotstuinlaan Colors</title>
+    <style>
+      :root {
+        --bg: #f6f5f2;
+        --card: #fff;
+        --text: #222;
+        --muted: #6b6b66;
+        --line: #dcdad4;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 24px 16px 48px;
+        background: var(--bg);
+        color: var(--text);
+        font:
+          15px/1.45 system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+      }
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 22px;
+        margin: 0 0 4px;
+      }
+      .note {
+        color: var(--muted);
+        margin: 0 0 20px;
+        max-width: 75ch;
+      }
+      .strip {
+        display: flex;
+        height: 90px;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        margin-bottom: 6px;
+      }
+      .strip div {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 8px 10px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .strip small {
+        font-weight: 400;
+        opacity: 0.85;
+      }
+      .strip-note {
+        font-size: 12px;
+        color: var(--muted);
+        margin: 0 0 24px;
+      }
+      section.colour {
+        margin-top: 28px;
+      }
+      section.colour h2 {
+        font-size: 18px;
+        margin: 0;
+      }
+      section.colour .use {
+        color: var(--muted);
+        margin: 0 0 10px;
+      }
+      .row {
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        padding-bottom: 8px;
+      }
+      .card {
+        flex: 0 0 190px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 12px;
+      }
+      .card.base {
+        border-color: #222;
+        border-width: 2px;
+      }
+      .chip {
+        height: 100px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+      }
+      .chip.none {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        font-size: 12px;
+        background: repeating-linear-gradient(
+          45deg,
+          #f0eee9,
+          #f0eee9 8px,
+          #e8e6e0 8px,
+          #e8e6e0 16px
+        );
+      }
+      .label {
+        margin-top: 8px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .label b {
+        display: block;
+        color: var(--text);
+        font-size: 14px;
+      }
+      .tag {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 1px 8px;
+        border-radius: 999px;
+        font-size: 11px;
+        border: 1px solid var(--line);
+      }
+      .base-t {
+        background: #222;
+        color: #fff;
+        border-color: #222;
+      }
+      .ral {
+        background: #e8eef9;
+        border-color: #b8c8e8;
+      }
+      .cust {
+        background: #efe6f7;
+        border-color: #cdb8e3;
+      }
+      .ok {
+        background: #e6f3e6;
+        border-color: #b9dbb9;
+      }
+      .no {
+        background: #fff3d6;
+        border-color: #e8d08a;
+      }
+      .ref {
+        display: block;
+        width: 100%;
+        max-width: 520px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        margin: 0 0 12px;
+      }
+      .src {
+        margin-top: 28px;
+        font-size: 13px;
+        color: var(--muted);
+        max-width: 85ch;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 13px;
+        background: var(--card);
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 6px 8px;
+        border-bottom: 1px solid var(--line);
+        white-space: nowrap;
+      }
+      th {
+        background: #efede8;
+      }
+      td.n,
+      th.n {
+        text-align: right;
+      }
+      tr.tot td {
+        font-weight: 700;
+      }
+      .scroll {
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+      }
+      .facts {
+        margin: 0 0 8px;
+        padding-left: 18px;
+      }
+      h2.sec {
+        font-size: 18px;
+        margin: 32px 0 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Rotstuinlaan Colors</h1>
 
-  <div class="strip" aria-label="Target palette (NCS)">
-    <div style="background:#C3CBBB">Light green<small>NCS S 2010-G20Y</small></div>
-    <div style="background:#6B6E5A; color:#fff">Dark green<small>NCS S 6010-G70Y</small></div>
-    <div style="background:#B8B77C">Sunny green<small>NCS S 2030-G90Y</small></div>
-    <div style="background:#E4DCCD">Beige<small>NCS S 1505-Y30R</small></div>
-  </div>
-  <p class="strip-note">Target palette: NCS codes shown as approximate screen colours (my conversion, not official).</p>
+      <section class="colour">
+        <h2>Light green</h2>
+        <p class="use">Bedroom</p>
+        <img class="ref" src="LightGreen.png" alt="Light green reference" />
+        <div class="row">
+          <div class="card base">
+            <div class="chip" style="background: #c3cbbb"></div>
+            <div class="label"><b>NCS S 2010-G20Y</b>Baseline</div>
+            <span class="tag base-t">Baseline</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: #b9b9a8"></div>
+            <div class="label"><b>RAL 7032</b>Pebble grey &middot; #B9B9A8 &middot; sRGB 185-185-168</div>
+            <span class="tag ral">RAL &middot; approx.</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: #bdbdb2"></div>
+            <div class="label"><b>RAL 7044</b>Silk grey &middot; #BDBDB2 &middot; sRGB 189-189-178</div>
+            <span class="tag ral">RAL &middot; approx.</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: #b4b8b0"></div>
+            <div class="label"><b>RAL 7038</b>Agate grey &middot; #B4B8B0 &middot; sRGB 180-184-176</div>
+            <span class="tag ral">RAL &middot; approx.</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: rgb(169, 180, 171)"></div>
+            <div class="label">
+              <b>Early Dew</b>Flexa Creations &middot; sRGB 169-180-171 &middot;
+              family Grijs
+            </div>
+            <span class="tag ok">Pre-mixed &middot; verified</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: rgb(175, 179, 165)"></div>
+            <div class="label">
+              <b>Airy Foliage</b>Flexa Creations &middot; sRGB 175-179-165
+            </div>
+            <span class="tag ok">Pre-mixed &middot; verified</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: rgb(163, 167, 147)"></div>
+            <div class="label">
+              <b>Soulful Sage</b>Flexa Creations &middot; sRGB 163-167-147
+              &middot; family Multi
+            </div>
+            <span class="tag ok">Pre-mixed &middot; verified</span>
+          </div>
+        </div>
+      </section>
 
-  <section class="colour">
-    <h2>Light green</h2>
-    <p class="use">Bedroom</p>
-    <img class="ref" src="LightGreen.png" alt="Light green reference">
-    <div class="row">
-      <div class="card base"><div class="chip" style="background:#C3CBBB"></div><div class="label"><b>NCS S 2010-G20Y</b>Baseline</div><span class="tag base-t">Baseline</span></div>
-      <div class="card"><div class="chip" style="background:#B9B9A8"></div><div class="label"><b>RAL 7032</b>Pebble grey &middot; #B9B9A8</div><span class="tag ral">RAL &middot; approx.</span></div>
-      <div class="card"><div class="chip" style="background:#BDBDB2"></div><div class="label"><b>RAL 7044</b>Silk grey &middot; #BDBDB2</div><span class="tag ral">RAL &middot; approx.</span></div>
-      <div class="card"><div class="chip" style="background:#B4B8B0"></div><div class="label"><b>RAL 7038</b>Agate grey &middot; #B4B8B0</div><span class="tag ral">RAL &middot; approx.</span></div>
-      <div class="card"><div class="chip" style="background:rgb(169,180,171)"></div><div class="label"><b>Early Dew</b>Flexa Creations &middot; sRGB 169-180-171 &middot; family Grijs</div><span class="tag ok">Pre-mixed &middot; verified</span></div>
-      <div class="card"><div class="chip" style="background:rgb(175,179,165)"></div><div class="label"><b>Airy Foliage</b>Flexa Creations &middot; sRGB 175-179-165</div><span class="tag ok">Pre-mixed &middot; verified</span></div>
-    </div>
-  </section>
+      <section class="colour">
+        <h2>Dark green</h2>
+        <p class="use">Office</p>
+        <img class="ref" src="DarkGreen.png" alt="Dark green reference" />
+        <div class="row">
+          <div class="card base">
+            <div class="chip" style="background: #6b6e5a"></div>
+            <div class="label"><b>NCS S 6010-G70Y</b>Baseline</div>
+            <span class="tag base-t">Baseline</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: #7a7b6d"></div>
+            <div class="label"><b>RAL 7003</b>Moss grey &middot; #7A7B6D &middot; sRGB 122-123-109</div>
+            <span class="tag ral">RAL &middot; approx.</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: #6b695f"></div>
+            <div class="label"><b>RAL 7039</b>Quartz grey &middot; #6B695F &middot; sRGB 107-105-95</div>
+            <span class="tag ral">RAL &middot; approx.</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: #5b6259"></div>
+            <div class="label"><b>RAL 7009</b>Green grey &middot; #5B6259 &middot; sRGB 91-98-89</div>
+            <span class="tag ral">RAL &middot; approx.</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: rgb(143, 140, 123)"></div>
+            <div class="label">
+              <b>Camouflage Green</b>Flexa Creations &middot; sRGB 143-140-123
+              &middot; family Bruin
+            </div>
+            <span class="tag ok">Pre-mixed &middot; verified</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: rgb(99, 102, 79)"></div>
+            <div class="label">
+              <b>Mossy Green</b>Flexa Creations &middot; sRGB 99-102-79 &middot;
+              family Transparant
+            </div>
+            <span class="tag ok">Pre-mixed &middot; verified</span>
+          </div>
+        </div>
+      </section>
 
-  <section class="colour">
-    <h2>Dark green</h2>
-    <p class="use">Office</p>
-    <img class="ref" src="DarkGreen.png" alt="Dark green reference">
-    <div class="row">
-      <div class="card base"><div class="chip" style="background:#6B6E5A"></div><div class="label"><b>NCS S 6010-G70Y</b>Baseline</div><span class="tag base-t">Baseline</span></div>
-      <div class="card"><div class="chip" style="background:#7A7B6D"></div><div class="label"><b>RAL 7003</b>Moss grey &middot; #7A7B6D</div><span class="tag ral">RAL &middot; approx.</span></div>
-      <div class="card"><div class="chip" style="background:#6B695F"></div><div class="label"><b>RAL 7039</b>Quartz grey &middot; #6B695F</div><span class="tag ral">RAL &middot; approx.</span></div>
-      <div class="card"><div class="chip" style="background:#5B6259"></div><div class="label"><b>RAL 7009</b>Green grey &middot; #5B6259</div><span class="tag ral">RAL &middot; approx.</span></div>
-      <div class="card"><div class="chip" style="background:rgb(143,140,123)"></div><div class="label"><b>Camouflage Green</b>Flexa Creations &middot; sRGB 143-140-123 &middot; family Bruin</div><span class="tag ok">Pre-mixed &middot; verified</span></div>
-      <div class="card"><div class="chip" style="background:rgb(154,160,125)"></div><div class="label"><b>Vol Salie</b>Flexa Creations &middot; sRGB 154-160-125</div><span class="tag ok">Pre-mixed &middot; verified</span></div>
-    </div>
-  </section>
+      <section class="colour">
+        <h2>Sunny green</h2>
+        <p class="use">Living / accent walls</p>
+        <img class="ref" src="SunnyGreen.png" alt="Sunny green reference" />
+        <div class="row">
+          <div class="card base">
+            <div class="chip" style="background: #b8b77c"></div>
+            <div class="label"><b>NCS S 2030-G90Y</b>Baseline</div>
+            <span class="tag base-t">Baseline</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: rgb(154, 160, 125)"></div>
+            <div class="label">
+              <b>Vol Salie</b>Flexa Creations &middot; sRGB 154-160-125
+            </div>
+            <span class="tag ok">Pre-mixed &middot; verified</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: rgb(196, 203, 146)"></div>
+            <div class="label"><b>Custom light</b>sRGB 196-203-146</div>
+            <span class="tag cust">Custom &middot; unverified</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: rgb(168, 179, 108)"></div>
+            <div class="label"><b>Custom mid</b>sRGB 168-179-108</div>
+            <span class="tag cust">Custom &middot; unverified</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: rgb(148, 160, 92)"></div>
+            <div class="label"><b>Custom deep</b>sRGB 148-160-92</div>
+            <span class="tag cust">Custom &middot; unverified</span>
+          </div>
+        </div>
+      </section>
 
-  <section class="colour">
-    <h2>Sunny green</h2>
-    <p class="use">Living / accent walls</p>
-    <img class="ref" src="SunnyGreen.png" alt="Sunny green reference">
-    <div class="row">
-      <div class="card base"><div class="chip" style="background:#B8B77C"></div><div class="label"><b>NCS S 2030-G90Y</b>Baseline</div><span class="tag base-t">Baseline</span></div>
-      <div class="card"><div class="chip" style="background:#86A47C"></div><div class="label"><b>RAL 6021</b>Pale green &middot; #86A47C</div><span class="tag ral">RAL &middot; approx.</span></div>
-      <div class="card"><div class="chip" style="background:#939176"></div><div class="label"><b>RAL 7034</b>Yellow grey &middot; #939176</div><span class="tag ral">RAL &middot; approx.</span></div>
-      <div class="card"><div class="chip" style="background:#CDBA88"></div><div class="label"><b>RAL 1000</b>Green beige &middot; #CDBA88</div><span class="tag ral">RAL &middot; approx.</span></div>
-    </div>
-  </section>
+      <section class="colour">
+        <h2>Beige</h2>
+        <p class="use">Neutral base</p>
+        <img class="ref" src="Beige.png" alt="Beige reference" />
+        <div class="row">
+          <div class="card base">
+            <div class="chip" style="background: #e4dccd"></div>
+            <div class="label"><b>NCS S 1505-Y30R</b>Baseline</div>
+            <span class="tag base-t">Baseline</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: #ddded4"></div>
+            <div class="label"><b>RAL 9002</b>Grey white &middot; #DDDED4 &middot; sRGB 221-222-212</div>
+            <span class="tag ral">RAL &middot; approx.</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: #e3d9c6"></div>
+            <div class="label">
+              <b>RAL 1013</b>Oyster white &middot; #E3D9C6 &middot; sRGB 227-217-198
+            </div>
+            <span class="tag ral">RAL &middot; approx.</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: #efebdc"></div>
+            <div class="label"><b>RAL 9001</b>Cream &middot; #EFEBDC &middot; sRGB 239-235-220</div>
+            <span class="tag ral">RAL &middot; approx.</span>
+          </div>
+          <div class="card">
+            <div class="chip" style="background: rgb(201, 191, 181)"></div>
+            <div class="label">
+              <b>Urban Taupe</b>Flexa Creations &middot; sRGB 201-191-181
+              &middot; family Bruin
+            </div>
+            <span class="tag ok">Pre-mixed &middot; verified</span>
+          </div>
+        </div>
+      </section>
 
-  <section class="colour">
-    <h2>Beige</h2>
-    <p class="use">Neutral base</p>
-    <img class="ref" src="Beige.png" alt="Beige reference">
-    <div class="row">
-      <div class="card base"><div class="chip" style="background:#E4DCCD"></div><div class="label"><b>NCS S 1505-Y30R</b>Baseline</div><span class="tag base-t">Baseline</span></div>
-      <div class="card"><div class="chip" style="background:#DDDED4"></div><div class="label"><b>RAL 9002</b>Grey white &middot; #DDDED4</div><span class="tag ral">RAL &middot; approx.</span></div>
-      <div class="card"><div class="chip" style="background:#E3D9C6"></div><div class="label"><b>RAL 1013</b>Oyster white &middot; #E3D9C6</div><span class="tag ral">RAL &middot; approx.</span></div>
-      <div class="card"><div class="chip" style="background:#EFEBDC"></div><div class="label"><b>RAL 9001</b>Cream &middot; #EFEBDC</div><span class="tag ral">RAL &middot; approx.</span></div>
-    </div>
-  </section>
+      <p class="src">
+        Pre-mixed sRGB values come from Flexa Creations product pages at
+        praxis.nl. RAL hex values are screen approximations from Wikipedia's RAL
+        Classic list, not from Praxis; confirm RAL mixing availability at the
+        Praxis paint counter.
+      </p>
+      <h2 class="sec">Settings</h2>
+      <ul class="facts">
+        <li>
+          Product: Flexa Creations Extra Mat, 10&ndash;12 m&sup2;/L (planning:
+          10)
+        </li>
+        <li>Tins: 1 / 2.5 / 5 L; any colour mixed in any tin size</li>
+        <li>Walls only; no deductions; no waste allowance</li>
+        <li>1 coat</li>
+        <li>Bedroom painted height 1.77 m (2/3 of 2.65 m)</li>
+      </ul>
 
-  <p class="src">Pre-mixed sRGB values come from Flexa Creations product pages at praxis.nl. RAL hex values are screen approximations from Wikipedia's RAL Classic list, not from Praxis; confirm RAL mixing availability at the Praxis paint counter.</p>
-  <h2 class="sec">Settings</h2>
-  <ul class="facts">
-    <li>Product: Flexa Creations Extra Mat, 10&ndash;12 m&sup2;/L (planning: 10)</li>
-    <li>Tins: 1 / 2.5 / 5 L; any colour mixed in any tin size</li>
-    <li>Walls only; no deductions; no waste allowance</li>
-    <li>1 coat</li>
-    <li>Bedroom painted height 1.77 m (2/3 of 2.65 m)</li>
-  </ul>
+      <h2 class="sec">Walls</h2>
+      <div class="scroll">
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Colour</th>
+            <th>Room</th>
+            <th>Wall</th>
+            <th class="n">W (m)</th>
+            <th class="n">H (m)</th>
+            <th class="n">Area (m&sup2;)</th>
+          </tr>
+          <tr>
+            <td>01</td>
+            <td>beige</td>
+            <td>Living room left</td>
+            <td>Wall</td>
+            <td class="n">8.00</td>
+            <td class="n">2.66</td>
+            <td class="n">21.28</td>
+          </tr>
+          <tr>
+            <td>02</td>
+            <td>beige</td>
+            <td>Kitchen</td>
+            <td>Wall 1</td>
+            <td class="n">2.23</td>
+            <td class="n">1.00</td>
+            <td class="n">2.23</td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td>sunny green</td>
+            <td>Kitchen</td>
+            <td>Wall 2</td>
+            <td class="n">2.23</td>
+            <td class="n">1.00</td>
+            <td class="n">2.23</td>
+          </tr>
+          <tr>
+            <td>04</td>
+            <td>beige</td>
+            <td>Kitchen</td>
+            <td>Wall 3</td>
+            <td class="n">2.60</td>
+            <td class="n">1.00</td>
+            <td class="n">2.60</td>
+          </tr>
+          <tr>
+            <td>05</td>
+            <td>sunny green</td>
+            <td>Living room right</td>
+            <td>Wall 1</td>
+            <td class="n">5.03</td>
+            <td class="n">2.66</td>
+            <td class="n">13.38</td>
+          </tr>
+          <tr>
+            <td>06</td>
+            <td>sunny green</td>
+            <td>Living room right</td>
+            <td>Wall 2</td>
+            <td class="n">2.37</td>
+            <td class="n">2.66</td>
+            <td class="n">6.30</td>
+          </tr>
+          <tr>
+            <td>07</td>
+            <td>sunny green</td>
+            <td>Stairwell</td>
+            <td>Back wall, floor 1</td>
+            <td class="n">2.86</td>
+            <td class="n">2.66</td>
+            <td class="n">7.61</td>
+          </tr>
+          <tr>
+            <td>08</td>
+            <td>sunny green</td>
+            <td>Stairwell</td>
+            <td>Back wall, floor 2</td>
+            <td class="n">2.86</td>
+            <td class="n">2.65</td>
+            <td class="n">7.58</td>
+          </tr>
+          <tr>
+            <td>09</td>
+            <td>sunny green</td>
+            <td>Stairwell</td>
+            <td>Back wall, floor 3</td>
+            <td class="n">2.86</td>
+            <td class="n">2.53</td>
+            <td class="n">7.24</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>sunny green</td>
+            <td>Stairwell</td>
+            <td>Side wall, floor 1</td>
+            <td class="n">1.20</td>
+            <td class="n">2.66</td>
+            <td class="n">3.19</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>sunny green</td>
+            <td>Stairwell</td>
+            <td>Side wall, floor 2</td>
+            <td class="n">1.20</td>
+            <td class="n">2.65</td>
+            <td class="n">3.18</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>dark green</td>
+            <td>Office</td>
+            <td>Wall 1</td>
+            <td class="n">3.02</td>
+            <td class="n">2.65</td>
+            <td class="n">8.00</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>dark green</td>
+            <td>Office</td>
+            <td>Wall 2</td>
+            <td class="n">3.02</td>
+            <td class="n">2.65</td>
+            <td class="n">8.00</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>dark green</td>
+            <td>Office</td>
+            <td>Wall 3</td>
+            <td class="n">2.41</td>
+            <td class="n">2.65</td>
+            <td class="n">6.39</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>dark green</td>
+            <td>Office</td>
+            <td>Wall 4</td>
+            <td class="n">2.41</td>
+            <td class="n">2.65</td>
+            <td class="n">6.39</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>light green</td>
+            <td>Bedroom</td>
+            <td>Wall 1</td>
+            <td class="n">4.10</td>
+            <td class="n">1.77</td>
+            <td class="n">7.26</td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td>light green</td>
+            <td>Bedroom</td>
+            <td>Wall 2</td>
+            <td class="n">4.10</td>
+            <td class="n">1.77</td>
+            <td class="n">7.26</td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td>light green</td>
+            <td>Bedroom</td>
+            <td>Wall 3</td>
+            <td class="n">2.56</td>
+            <td class="n">1.77</td>
+            <td class="n">4.53</td>
+          </tr>
+        </table>
+      </div>
 
-  <h2 class="sec">Walls</h2>
-<div class="scroll"><table>
-<tr><th>ID</th><th>Colour</th><th>Room</th><th>Wall</th><th class="n">W (m)</th><th class="n">H (m)</th><th class="n">Area (m&sup2;)</th></tr>
-<tr><td>01</td><td>beige</td><td>Living room left</td><td>Wall</td><td class="n">8.00</td><td class="n">2.66</td><td class="n">21.28</td></tr>
-<tr><td>02</td><td>beige</td><td>Kitchen</td><td>Wall 1</td><td class="n">2.23</td><td class="n">1.00</td><td class="n">2.23</td></tr>
-<tr><td>03</td><td>sunny green</td><td>Kitchen</td><td>Wall 2</td><td class="n">2.23</td><td class="n">1.00</td><td class="n">2.23</td></tr>
-<tr><td>04</td><td>beige</td><td>Kitchen</td><td>Wall 3</td><td class="n">2.60</td><td class="n">1.00</td><td class="n">2.60</td></tr>
-<tr><td>05</td><td>sunny green</td><td>Living room right</td><td>Wall 1</td><td class="n">5.03</td><td class="n">2.66</td><td class="n">13.38</td></tr>
-<tr><td>06</td><td>sunny green</td><td>Living room right</td><td>Wall 2</td><td class="n">2.37</td><td class="n">2.66</td><td class="n">6.30</td></tr>
-<tr><td>07</td><td>sunny green</td><td>Stairwell</td><td>Back wall, floor 1</td><td class="n">2.86</td><td class="n">2.66</td><td class="n">7.61</td></tr>
-<tr><td>08</td><td>sunny green</td><td>Stairwell</td><td>Back wall, floor 2</td><td class="n">2.86</td><td class="n">2.65</td><td class="n">7.58</td></tr>
-<tr><td>09</td><td>sunny green</td><td>Stairwell</td><td>Back wall, floor 3</td><td class="n">2.86</td><td class="n">2.53</td><td class="n">7.24</td></tr>
-<tr><td>10</td><td>sunny green</td><td>Stairwell</td><td>Side wall, floor 1</td><td class="n">1.20</td><td class="n">2.66</td><td class="n">3.19</td></tr>
-<tr><td>11</td><td>sunny green</td><td>Stairwell</td><td>Side wall, floor 2</td><td class="n">1.20</td><td class="n">2.65</td><td class="n">3.18</td></tr>
-<tr><td>12</td><td>dark green</td><td>Office</td><td>Wall 1</td><td class="n">3.02</td><td class="n">2.65</td><td class="n">8.00</td></tr>
-<tr><td>13</td><td>dark green</td><td>Office</td><td>Wall 2</td><td class="n">3.02</td><td class="n">2.65</td><td class="n">8.00</td></tr>
-<tr><td>14</td><td>dark green</td><td>Office</td><td>Wall 3</td><td class="n">2.41</td><td class="n">2.65</td><td class="n">6.39</td></tr>
-<tr><td>15</td><td>dark green</td><td>Office</td><td>Wall 4</td><td class="n">2.41</td><td class="n">2.65</td><td class="n">6.39</td></tr>
-<tr><td>16</td><td>light green</td><td>Bedroom</td><td>Wall 1</td><td class="n">4.10</td><td class="n">1.77</td><td class="n">7.26</td></tr>
-<tr><td>17</td><td>light green</td><td>Bedroom</td><td>Wall 2</td><td class="n">4.10</td><td class="n">1.77</td><td class="n">7.26</td></tr>
-<tr><td>18</td><td>light green</td><td>Bedroom</td><td>Wall 3</td><td class="n">2.56</td><td class="n">1.77</td><td class="n">4.53</td></tr>
-</table></div>
+      <h2 class="sec">Totals (1 coat)</h2>
+      <div class="scroll">
+        <table>
+          <tr>
+            <th>Colour</th>
+            <th class="n">Area (m&sup2;)</th>
+            <th class="n">L @10</th>
+            <th class="n">L @12</th>
+          </tr>
+          <tr>
+            <td>Sunny green</td>
+            <td class="n">50.71</td>
+            <td class="n">5.07</td>
+            <td class="n">4.23</td>
+          </tr>
+          <tr>
+            <td>Beige</td>
+            <td class="n">26.11</td>
+            <td class="n">2.61</td>
+            <td class="n">2.18</td>
+          </tr>
+          <tr>
+            <td>Dark green</td>
+            <td class="n">28.78</td>
+            <td class="n">2.88</td>
+            <td class="n">2.40</td>
+          </tr>
+          <tr>
+            <td>Light green</td>
+            <td class="n">19.05</td>
+            <td class="n">1.90</td>
+            <td class="n">1.59</td>
+          </tr>
+          <tr class="tot">
+            <td>Total</td>
+            <td class="n">124.64</td>
+            <td class="n">12.46</td>
+            <td class="n">10.39</td>
+          </tr>
+        </table>
+      </div>
 
-  <h2 class="sec">Totals (1 coat)</h2>
-<div class="scroll"><table>
-<tr><th>Colour</th><th class="n">Area (m&sup2;)</th><th class="n">L @10</th><th class="n">L @12</th></tr>
-<tr><td>Sunny green</td><td class="n">50.71</td><td class="n">5.07</td><td class="n">4.23</td></tr>
-<tr><td>Beige</td><td class="n">26.11</td><td class="n">2.61</td><td class="n">2.18</td></tr>
-<tr><td>Dark green</td><td class="n">28.78</td><td class="n">2.88</td><td class="n">2.40</td></tr>
-<tr><td>Light green</td><td class="n">19.05</td><td class="n">1.90</td><td class="n">1.59</td></tr>
-<tr class="tot"><td>Total</td><td class="n">124.64</td><td class="n">12.46</td><td class="n">10.39</td></tr>
-</table></div>
+      <h2 class="sec">Undecided colour</h2>
+      <p class="use" style="color: var(--muted); margin: 0 0 8px">
+        Sunny green, beige, or a mix; not in totals above.
+      </p>
+      <div class="scroll">
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Room</th>
+            <th>Wall</th>
+            <th class="n">W (m)</th>
+            <th class="n">H (m)</th>
+            <th class="n">Area (m&sup2;)</th>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>Entry</td>
+            <td>Wall</td>
+            <td class="n">2.33</td>
+            <td class="n">2.66</td>
+            <td class="n">6.20</td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>Entry</td>
+            <td>Small sections</td>
+            <td class="n">1.50</td>
+            <td class="n">2.66</td>
+            <td class="n">3.99</td>
+          </tr>
+          <tr>
+            <td>21</td>
+            <td>1F Hallway</td>
+            <td>Walls</td>
+            <td class="n">5.00</td>
+            <td class="n">2.65</td>
+            <td class="n">13.25</td>
+          </tr>
+        </table>
+      </div>
+      <br />
+      <div class="scroll">
+        <table>
+          <tr>
+            <th>Section</th>
+            <th class="n">Area (m&sup2;)</th>
+            <th class="n">L @10</th>
+            <th class="n">L @12</th>
+          </tr>
+          <tr>
+            <td>Entry</td>
+            <td class="n">10.19</td>
+            <td class="n">1.02</td>
+            <td class="n">0.85</td>
+          </tr>
+          <tr>
+            <td>1F Hallway</td>
+            <td class="n">13.25</td>
+            <td class="n">1.33</td>
+            <td class="n">1.10</td>
+          </tr>
+          <tr class="tot">
+            <td>Total</td>
+            <td class="n">23.44</td>
+            <td class="n">2.34</td>
+            <td class="n">1.95</td>
+          </tr>
+        </table>
+      </div>
 
-  <h2 class="sec">Undecided colour</h2>
-  <p class="use" style="color:var(--muted);margin:0 0 8px">Sunny green, beige, or a mix; not in totals above.</p>
-<div class="scroll"><table>
-<tr><th>ID</th><th>Room</th><th>Wall</th><th class="n">W (m)</th><th class="n">H (m)</th><th class="n">Area (m&sup2;)</th></tr>
-<tr><td>19</td><td>Entry</td><td>Wall</td><td class="n">2.33</td><td class="n">2.66</td><td class="n">6.20</td></tr>
-<tr><td>20</td><td>Entry</td><td>Small sections</td><td class="n">1.50</td><td class="n">2.66</td><td class="n">3.99</td></tr>
-<tr><td>21</td><td>1F Hallway</td><td>Walls</td><td class="n">5.00</td><td class="n">2.65</td><td class="n">13.25</td></tr>
-</table></div>
-<br>
-<div class="scroll"><table>
-<tr><th>Section</th><th class="n">Area (m&sup2;)</th><th class="n">L @10</th><th class="n">L @12</th></tr>
-<tr><td>Entry</td><td class="n">10.19</td><td class="n">1.02</td><td class="n">0.85</td></tr>
-<tr><td>1F Hallway</td><td class="n">13.25</td><td class="n">1.33</td><td class="n">1.10</td></tr>
-<tr class="tot"><td>Total</td><td class="n">23.44</td><td class="n">2.34</td><td class="n">1.95</td></tr>
-</table></div>
-
-  <h2 class="sec">Shopping list (1 coat, 10 m&sup2;/L)</h2>
-<div class="scroll"><table>
-<tr><th>Tin</th><th class="n">Regular (&euro;)</th><th class="n">Praxis Plus &minus;30% (&euro;)</th></tr>
-<tr><td>1 L</td><td class="n">34.99</td><td class="n">24.49</td></tr>
-<tr><td>2.5 L</td><td class="n">62.49</td><td class="n">43.74</td></tr>
-<tr><td>5 L</td><td class="n">116.49</td><td class="n">81.54</td></tr>
-</table></div>
-<br>
-<div class="scroll"><table>
-<tr><th>Colour</th><th class="n">Need (L)</th><th class="n">Buy (L)</th><th>Tins</th><th class="n">Cost (&euro;)</th><th>Also covers</th></tr>
-<tr><td>Sunny green</td><td class="n">5.07</td><td class="n">7.5</td><td>5 L + 2.5 L</td><td class="n">125.28</td><td>Entry + 1F Hallway (7.41 L in all)</td></tr>
-<tr><td>Beige</td><td class="n">2.61</td><td class="n">5</td><td>1 &times; 5 L</td><td class="n">81.54</td><td>Entry + 1F Hallway (4.96 L in all)</td></tr>
-<tr><td>Dark green</td><td class="n">2.88</td><td class="n">5</td><td>1 &times; 5 L</td><td class="n">81.54</td><td></td></tr>
-<tr><td>Light green</td><td class="n">1.90</td><td class="n">2.5</td><td>1 &times; 2.5 L</td><td class="n">43.74</td><td></td></tr>
-<tr class="tot"><td>Total</td><td class="n"></td><td class="n">20</td><td></td><td class="n">332.10</td><td></td></tr>
-</table></div>
-</main>
-</body>
+      <h2 class="sec">Shopping list (1 coat, 10 m&sup2;/L)</h2>
+      <div class="scroll">
+        <table>
+          <tr>
+            <th>Tin</th>
+            <th class="n">Regular (&euro;)</th>
+            <th class="n">Praxis Plus &minus;30% (&euro;)</th>
+          </tr>
+          <tr>
+            <td>1 L</td>
+            <td class="n">34.99</td>
+            <td class="n">24.49</td>
+          </tr>
+          <tr>
+            <td>2.5 L</td>
+            <td class="n">62.49</td>
+            <td class="n">43.74</td>
+          </tr>
+          <tr>
+            <td>5 L</td>
+            <td class="n">116.49</td>
+            <td class="n">81.54</td>
+          </tr>
+        </table>
+      </div>
+      <br />
+      <div class="scroll">
+        <table>
+          <tr>
+            <th>Colour</th>
+            <th class="n">Need (L)</th>
+            <th class="n">Buy (L)</th>
+            <th>Tins</th>
+            <th class="n">Cost (&euro;)</th>
+            <th>Also covers</th>
+          </tr>
+          <tr>
+            <td>Sunny green</td>
+            <td class="n">5.07</td>
+            <td class="n">7.5</td>
+            <td>5 L + 2.5 L</td>
+            <td class="n">125.28</td>
+            <td>Entry + 1F Hallway (7.41 L in all)</td>
+          </tr>
+          <tr>
+            <td>Beige</td>
+            <td class="n">2.61</td>
+            <td class="n">5</td>
+            <td>1 &times; 5 L</td>
+            <td class="n">81.54</td>
+            <td>Entry + 1F Hallway (4.96 L in all)</td>
+          </tr>
+          <tr>
+            <td>Dark green</td>
+            <td class="n">2.88</td>
+            <td class="n">5</td>
+            <td>1 &times; 5 L</td>
+            <td class="n">81.54</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Light green</td>
+            <td class="n">1.90</td>
+            <td class="n">2.5</td>
+            <td>1 &times; 2.5 L</td>
+            <td class="n">43.74</td>
+            <td></td>
+          </tr>
+          <tr class="tot">
+            <td>Total</td>
+            <td class="n"></td>
+            <td class="n">20</td>
+            <td></td>
+            <td class="n">332.10</td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </main>
+  </body>
 </html>
