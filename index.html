@@ -40,32 +40,73 @@
         max-width: 75ch;
       }
       .strip {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        margin: 0 -16px 8px;
+        padding: 8px 16px;
+        background: var(--bg);
+      }
+      .strip .cells {
         display: flex;
-        height: 90px;
+        height: 84px;
         border-radius: 10px;
         overflow: hidden;
         border: 1px solid var(--line);
-        margin-bottom: 6px;
       }
-      .strip div {
+      .strip .cell {
         flex: 1;
+        min-width: 0;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        padding: 8px 10px;
-        font-size: 13px;
+        padding: 6px 8px;
+        font-size: 12px;
         font-weight: 600;
+        line-height: 1.25;
+        cursor: pointer;
       }
-      .strip small {
+      .strip .cell small {
         font-weight: 400;
         opacity: 0.85;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
-      .strip-note {
-        font-size: 12px;
-        color: var(--muted);
-        margin: 0 0 24px;
+      .card {
+        cursor: pointer;
+      }
+      .custom .chip {
+        display: block;
+        width: 100%;
+        padding: 0;
+        background: none;
+        cursor: pointer;
+      }
+      .custom .rgb {
+        display: flex;
+        gap: 4px;
+        margin-top: 8px;
+      }
+      .custom input[type="number"],
+      .custom input[type="text"] {
+        min-width: 0;
+        width: 100%;
+        padding: 4px;
+        font: inherit;
+        font-size: 13px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+      }
+      .custom input[type="text"] {
+        margin-top: 4px;
+      }
+      .card.sel {
+        outline: 3px solid #2a6df4;
+        outline-offset: 1px;
       }
       section.colour {
+        scroll-margin-top: 120px;
         margin-top: 28px;
       }
       section.colour h2 {
@@ -206,6 +247,8 @@
   <body>
     <main>
       <h1>Rotstuinlaan Colors</h1>
+      <p class="note">Tap a card to pick it; tap a swatch above to jump to its section.</p>
+      <div class="strip"><div class="cells" id="cells"></div></div>
 
       <section class="colour">
         <h2>Light green</h2>
@@ -761,5 +804,172 @@
         </table>
       </div>
     </main>
+    <script>
+      (function () {
+        var sections = Array.prototype.slice.call(
+          document.querySelectorAll("section.colour"),
+        );
+        var sel = {};
+        var custom = {};
+        function load(key) {
+          try {
+            return JSON.parse(localStorage.getItem(key)) || {};
+          } catch (e) {
+            return {};
+          }
+        }
+        function save() {
+          try {
+            localStorage.setItem("paintSel", JSON.stringify(sel));
+            localStorage.setItem("paintCustom", JSON.stringify(custom));
+          } catch (e) {}
+        }
+        sel = load("paintSel");
+        custom = load("paintCustom");
+
+        function toHex(rgb) {
+          return (
+            "#" +
+            rgb
+              .map(function (v) {
+                return ("0" + v.toString(16)).slice(-2);
+              })
+              .join("")
+          );
+        }
+        function clamp(v) {
+          v = Math.round(Number(v));
+          return isNaN(v) ? 0 : Math.max(0, Math.min(255, v));
+        }
+        function ink(rgb) {
+          return 0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2] < 140
+            ? "#fff"
+            : "#222";
+        }
+        function parse(bg) {
+          return bg.match(/\d+/g).slice(0, 3).map(Number);
+        }
+
+        var cells = document.getElementById("cells");
+        var info = sections.map(function (sec, i) {
+          var row = sec.querySelector(".row");
+          var base = parse(
+            getComputedStyle(row.querySelector(".chip")).backgroundColor,
+          );
+          var rgb = custom[i] || base;
+          var card = document.createElement("div");
+          card.className = "card custom";
+          card.innerHTML =
+            '<input class="chip" type="color" aria-label="Custom colour">' +
+            '<div class="rgb">' +
+            '<input type="number" min="0" max="255" inputmode="numeric" aria-label="R">' +
+            '<input type="number" min="0" max="255" inputmode="numeric" aria-label="G">' +
+            '<input type="number" min="0" max="255" inputmode="numeric" aria-label="B">' +
+            "</div>" +
+            '<input type="text" maxlength="7" aria-label="Hex">' +
+            '<div class="label"><b>Custom</b></div>' +
+            '<span class="tag cust">Custom &middot; picker</span>';
+          row.appendChild(card);
+          return {
+            rgb: rgb,
+            card: card,
+            picker: card.querySelector("input[type=color]"),
+            nums: card.querySelectorAll("input[type=number]"),
+            hex: card.querySelector("input[type=text]"),
+            label: card.querySelector(".label b"),
+          };
+        });
+
+        function sync(i, except) {
+          var o = info[i];
+          o.picker.value = toHex(o.rgb);
+          if (except !== "nums")
+            o.nums.forEach(function (n, k) {
+              n.value = o.rgb[k];
+            });
+          if (except !== "hex") o.hex.value = toHex(o.rgb);
+          o.label.textContent = "Custom " + o.rgb.join("-");
+        }
+
+        function render() {
+          cells.innerHTML = "";
+          sections.forEach(function (sec, i) {
+            var cards = sec.querySelectorAll(".card");
+            var idx = sel[i] < cards.length ? sel[i] || 0 : 0;
+            cards.forEach(function (c, k) {
+              c.classList.toggle("sel", k === idx);
+            });
+            var c = cards[idx];
+            var rgb =
+              c === info[i].card
+                ? info[i].rgb
+                : parse(getComputedStyle(c.querySelector(".chip")).backgroundColor);
+            var bg = "rgb(" + rgb.join(",") + ")";
+            var cell = document.createElement("div");
+            cell.className = "cell";
+            cell.style.background = bg;
+            cell.style.color = ink(rgb);
+            cell.innerHTML = "<span></span><small></small>";
+            cell.firstChild.textContent = sec.querySelector("h2").textContent;
+            cell.lastChild.textContent = c.querySelector(".label b").textContent;
+            cell.onclick = function () {
+              sec.scrollIntoView({ behavior: "smooth" });
+            };
+            cells.appendChild(cell);
+          });
+        }
+
+        function edit(i, rgb, except) {
+          var o = info[i];
+          o.rgb = rgb;
+          custom[i] = rgb;
+          sel[i] = sections[i].querySelectorAll(".card").length - 1;
+          sync(i, except);
+          save();
+          render();
+        }
+
+        sections.forEach(function (sec, i) {
+          var o = info[i];
+          sync(i);
+          sec.querySelectorAll(".card").forEach(function (c, k) {
+            c.addEventListener("click", function () {
+              sel[i] = k;
+              save();
+              render();
+            });
+          });
+          o.picker.addEventListener("input", function () {
+            var h = o.picker.value;
+            edit(i, [1, 3, 5].map(function (j) {
+              return parseInt(h.slice(j, j + 2), 16);
+            }));
+          });
+          o.nums.forEach(function (n) {
+            n.addEventListener("input", function () {
+              if (n.value === "") return;
+              edit(i, [].map.call(o.nums, function (x) {
+                return clamp(x.value);
+              }), "nums");
+            });
+            n.addEventListener("change", function () {
+              sync(i);
+            });
+          });
+          o.hex.addEventListener("input", function () {
+            var m = o.hex.value.match(/^#?([0-9a-f]{6})$/i);
+            if (!m) return;
+            var h = m[1];
+            edit(i, [0, 2, 4].map(function (j) {
+              return parseInt(h.slice(j, j + 2), 16);
+            }), "hex");
+          });
+          o.hex.addEventListener("change", function () {
+            sync(i);
+          });
+        });
+        render();
+      })();
+    </script>
   </body>
 </html>
