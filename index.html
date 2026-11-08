@@ -31,6 +31,14 @@
   .ok { background:#e6f3e6; border-color:#b9dbb9; }
   .no { background:#fff3d6; border-color:#e8d08a; }
   .src { margin-top:28px; font-size:13px; color:var(--muted); max-width:85ch; }
+  table { border-collapse:collapse; width:100%; font-size:13px; background:var(--card); }
+  th, td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); white-space:nowrap; }
+  th { background:#efede8; }
+  td.n, th.n { text-align:right; }
+  tr.tot td { font-weight:700; }
+  .scroll { overflow-x:auto; border:1px solid var(--line); border-radius:10px; }
+  .facts { margin:0 0 8px; padding-left:18px; }
+  h2.sec { font-size:18px; margin:32px 0 8px; }
 </style>
 </head>
 <body>
@@ -96,6 +104,80 @@
   </section>
 
   <p class="src">Pre-mixed sRGB values come from Flexa Creations product pages at praxis.nl. RAL hex values are commonly published screen approximations, not from Praxis; confirm RAL mixing availability at the Praxis paint counter.</p>
+  <h2 class="sec">Settings</h2>
+  <ul class="facts">
+    <li>Product: Flexa Creations Extra Mat, 10&ndash;12 m&sup2;/L (planning: 10)</li>
+    <li>Tins: 1 / 2.5 / 5 L; any colour mixed in any tin size</li>
+    <li>Walls only; no deductions; no waste allowance</li>
+    <li>1 coat</li>
+    <li>Bedroom painted height 1.77 m (2/3 of 2.65 m)</li>
+  </ul>
+
+  <h2 class="sec">Walls</h2>
+<div class="scroll"><table>
+<tr><th>ID</th><th>Colour</th><th>Room</th><th>Wall</th><th class="n">W (m)</th><th class="n">H (m)</th><th class="n">Area (m&sup2;)</th></tr>
+<tr><td>01</td><td>beige</td><td>Living room left</td><td>Wall</td><td class="n">8.00</td><td class="n">2.66</td><td class="n">21.28</td></tr>
+<tr><td>02</td><td>beige</td><td>Kitchen</td><td>Wall 1</td><td class="n">2.23</td><td class="n">1.00</td><td class="n">2.23</td></tr>
+<tr><td>03</td><td>sunny green</td><td>Kitchen</td><td>Wall 2</td><td class="n">2.23</td><td class="n">1.00</td><td class="n">2.23</td></tr>
+<tr><td>04</td><td>beige</td><td>Kitchen</td><td>Wall 3</td><td class="n">2.60</td><td class="n">1.00</td><td class="n">2.60</td></tr>
+<tr><td>05</td><td>sunny green</td><td>Living room right</td><td>Wall 1</td><td class="n">5.03</td><td class="n">2.66</td><td class="n">13.38</td></tr>
+<tr><td>06</td><td>sunny green</td><td>Living room right</td><td>Wall 2</td><td class="n">2.37</td><td class="n">2.66</td><td class="n">6.30</td></tr>
+<tr><td>07</td><td>sunny green</td><td>Stairwell</td><td>Back wall, floor 1</td><td class="n">2.86</td><td class="n">2.66</td><td class="n">7.61</td></tr>
+<tr><td>08</td><td>sunny green</td><td>Stairwell</td><td>Back wall, floor 2</td><td class="n">2.86</td><td class="n">2.65</td><td class="n">7.58</td></tr>
+<tr><td>09</td><td>sunny green</td><td>Stairwell</td><td>Back wall, floor 3</td><td class="n">2.86</td><td class="n">2.53</td><td class="n">7.24</td></tr>
+<tr><td>10</td><td>sunny green</td><td>Stairwell</td><td>Side wall, floor 1</td><td class="n">1.20</td><td class="n">2.66</td><td class="n">3.19</td></tr>
+<tr><td>11</td><td>sunny green</td><td>Stairwell</td><td>Side wall, floor 2</td><td class="n">1.20</td><td class="n">2.65</td><td class="n">3.18</td></tr>
+<tr><td>12</td><td>dark green</td><td>Office</td><td>Wall 1</td><td class="n">3.02</td><td class="n">2.65</td><td class="n">8.00</td></tr>
+<tr><td>13</td><td>dark green</td><td>Office</td><td>Wall 2</td><td class="n">3.02</td><td class="n">2.65</td><td class="n">8.00</td></tr>
+<tr><td>14</td><td>dark green</td><td>Office</td><td>Wall 3</td><td class="n">2.41</td><td class="n">2.65</td><td class="n">6.39</td></tr>
+<tr><td>15</td><td>dark green</td><td>Office</td><td>Wall 4</td><td class="n">2.41</td><td class="n">2.65</td><td class="n">6.39</td></tr>
+<tr><td>16</td><td>light green</td><td>Bedroom</td><td>Wall 1</td><td class="n">4.10</td><td class="n">1.77</td><td class="n">7.26</td></tr>
+<tr><td>17</td><td>light green</td><td>Bedroom</td><td>Wall 2</td><td class="n">4.10</td><td class="n">1.77</td><td class="n">7.26</td></tr>
+<tr><td>18</td><td>light green</td><td>Bedroom</td><td>Wall 3</td><td class="n">2.56</td><td class="n">1.77</td><td class="n">4.53</td></tr>
+</table></div>
+
+  <h2 class="sec">Totals (1 coat)</h2>
+<div class="scroll"><table>
+<tr><th>Colour</th><th class="n">Area (m&sup2;)</th><th class="n">L @10</th><th class="n">L @12</th></tr>
+<tr><td>Sunny green</td><td class="n">50.71</td><td class="n">5.07</td><td class="n">4.23</td></tr>
+<tr><td>Beige</td><td class="n">26.11</td><td class="n">2.61</td><td class="n">2.18</td></tr>
+<tr><td>Dark green</td><td class="n">28.78</td><td class="n">2.88</td><td class="n">2.40</td></tr>
+<tr><td>Light green</td><td class="n">19.05</td><td class="n">1.90</td><td class="n">1.59</td></tr>
+<tr class="tot"><td>Total</td><td class="n">124.64</td><td class="n">12.46</td><td class="n">10.39</td></tr>
+</table></div>
+
+  <h2 class="sec">Undecided colour</h2>
+  <p class="use" style="color:var(--muted);margin:0 0 8px">Sunny green, beige, or a mix; not in totals above.</p>
+<div class="scroll"><table>
+<tr><th>ID</th><th>Room</th><th>Wall</th><th class="n">W (m)</th><th class="n">H (m)</th><th class="n">Area (m&sup2;)</th></tr>
+<tr><td>19</td><td>Entry</td><td>Wall</td><td class="n">2.33</td><td class="n">2.66</td><td class="n">6.20</td></tr>
+<tr><td>20</td><td>Entry</td><td>Small sections</td><td class="n">1.50</td><td class="n">2.66</td><td class="n">3.99</td></tr>
+<tr><td>21</td><td>1F Hallway</td><td>Walls</td><td class="n">5.00</td><td class="n">2.65</td><td class="n">13.25</td></tr>
+</table></div>
+<br>
+<div class="scroll"><table>
+<tr><th>Section</th><th class="n">Area (m&sup2;)</th><th class="n">L @10</th><th class="n">L @12</th></tr>
+<tr><td>Entry</td><td class="n">10.19</td><td class="n">1.02</td><td class="n">0.85</td></tr>
+<tr><td>1F Hallway</td><td class="n">13.25</td><td class="n">1.33</td><td class="n">1.10</td></tr>
+<tr class="tot"><td>Total</td><td class="n">23.44</td><td class="n">2.34</td><td class="n">1.95</td></tr>
+</table></div>
+
+  <h2 class="sec">Shopping list (1 coat, 10 m&sup2;/L)</h2>
+<div class="scroll"><table>
+<tr><th>Tin</th><th class="n">Regular (&euro;)</th><th class="n">Praxis Plus &minus;30% (&euro;)</th></tr>
+<tr><td>1 L</td><td class="n">34.99</td><td class="n">24.49</td></tr>
+<tr><td>2.5 L</td><td class="n">62.49</td><td class="n">43.74</td></tr>
+<tr><td>5 L</td><td class="n">116.49</td><td class="n">81.54</td></tr>
+</table></div>
+<br>
+<div class="scroll"><table>
+<tr><th>Colour</th><th class="n">Need (L)</th><th class="n">Buy (L)</th><th>Tins</th><th class="n">Cost (&euro;)</th><th>Also covers</th></tr>
+<tr><td>Sunny green</td><td class="n">5.07</td><td class="n">7.5</td><td>5 L + 2.5 L</td><td class="n">125.28</td><td>Entry + 1F Hallway (7.41 L in all)</td></tr>
+<tr><td>Beige</td><td class="n">2.61</td><td class="n">5</td><td>1 &times; 5 L</td><td class="n">81.54</td><td>Entry + 1F Hallway (4.96 L in all)</td></tr>
+<tr><td>Dark green</td><td class="n">2.88</td><td class="n">5</td><td>1 &times; 5 L</td><td class="n">81.54</td><td></td></tr>
+<tr><td>Light green</td><td class="n">1.90</td><td class="n">2.5</td><td>1 &times; 2.5 L</td><td class="n">43.74</td><td></td></tr>
+<tr class="tot"><td>Total</td><td class="n"></td><td class="n">20</td><td></td><td class="n">332.10</td><td></td></tr>
+</table></div>
 </main>
 </body>
 </html>
