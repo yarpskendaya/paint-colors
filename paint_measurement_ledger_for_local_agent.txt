@@ -1,0 +1,136 @@
+# Paint Ledger - Rotstuinlaan
+
+## Rules
+
+- Edit rows in place; IDs are unique and never reused. Never delete rows (mark inactive).
+- Area = W x H. Recompute totals from rows after every edit.
+- Log every change.
+
+## Settings
+
+- Product: Flexa Creations Extra Mat, 10-12 m2/L (planning: 10)
+- Tins: 1 / 2.5 / 5 L; any colour mixed in any tin size
+- Walls only; no deductions; no waste allowance
+- Coats: 1
+- Bedroom painted height 1.77 m (2/3 of 2.65 m)
+
+## Colors
+
+Verified = read from a Flexa Creations product page on praxis.nl (sRGB colour code). NCS and RAL codes could not be verified and are not listed.
+
+| Colour      | Used for              | Flexa Creations name | sRGB (verified) | Praxis colour family | Status                              |
+|-------------|-----------------------|----------------------|-----------------|----------------------|-------------------------------------|
+| Light green | Bedroom               | Early Dew            | 169-180-171     | Grijs                | Verified                            |
+| Dark green  | Office                | Camouflage Green     | 143-140-123     | Bruin                | Verified                            |
+| Sunny green | Living / accent walls | undecided            | -               | -                    | NCS S 2030-G90Y (user-supplied)     |
+| Beige       | Neutral base          | undecided            | -               | -                    | NCS S 1505-Y30R (user-supplied)     |
+
+Target NCS codes (user-supplied, not verified):
+
+| Colour      | NCS         |
+|-------------|-------------|
+| Light green | S 2010-G20Y |
+| Dark green  | S 6010-G70Y |
+| Sunny green | S 2030-G90Y |
+| Beige       | S 1505-Y30R |
+
+Pre-mixed candidates (verified Flexa Creations, sRGB from Praxis):
+
+| Colour      | Flexa Creations name | sRGB        |
+|-------------|----------------------|-------------|
+| Light green | Airy Foliage         | 175-179-165 |
+| Dark green  | Vol Salie            | 154-160-125 |
+
+RAL alternatives (screen approximations, not verified; see colors_overview.html):
+
+| Colour      | RAL                    |
+|-------------|------------------------|
+| Light green | 7038, 7035, 9018       |
+| Dark green  | 7003, 7033, 7009       |
+| Sunny green | 7032, 7034, 1001, 1020 |
+| Beige       | 9002, 9018, 7044       |
+
+## Walls
+
+| ID | Status | Colour      | Room              | Wall               | W (m) | H (m) | Area (m2) |
+|----|--------|-------------|-------------------|--------------------|-------|-------|-----------|
+| 01 | active | beige       | Living room left  | Wall               | 8.00  | 2.66  | 21.2800   |
+| 02 | active | beige       | Kitchen           | Wall 1             | 2.23  | 1.00  | 2.2300    |
+| 03 | active | sunny green | Kitchen           | Wall 2             | 2.23  | 1.00  | 2.2300    |
+| 04 | active | beige       | Kitchen           | Wall 3             | 2.60  | 1.00  | 2.6000    |
+| 05 | active | sunny green | Living room right | Wall 1             | 5.03  | 2.66  | 13.3798   |
+| 06 | active | sunny green | Living room right | Wall 2             | 2.37  | 2.66  | 6.3042    |
+| 07 | active | sunny green | Stairwell         | Back wall, floor 1 | 2.86  | 2.66  | 7.6076    |
+| 08 | active | sunny green | Stairwell         | Back wall, floor 2 | 2.86  | 2.65  | 7.5790    |
+| 09 | active | sunny green | Stairwell         | Back wall, floor 3 | 2.86  | 2.53  | 7.2358    |
+| 10 | active | sunny green | Stairwell         | Side wall, floor 1 | 1.20  | 2.66  | 3.1920    |
+| 11 | active | sunny green | Stairwell         | Side wall, floor 2 | 1.20  | 2.65  | 3.1800    |
+| 12 | active | dark green  | Office            | Wall 1             | 3.02  | 2.65  | 8.0030    |
+| 13 | active | dark green  | Office            | Wall 2             | 3.02  | 2.65  | 8.0030    |
+| 14 | active | dark green  | Office            | Wall 3             | 2.41  | 2.65  | 6.3865    |
+| 15 | active | dark green  | Office            | Wall 4             | 2.41  | 2.65  | 6.3865    |
+| 16 | active | light green | Bedroom           | Wall 1             | 4.10  | 1.77  | 7.2570    |
+| 17 | active | light green | Bedroom           | Wall 2             | 4.10  | 1.77  | 7.2570    |
+| 18 | active | light green | Bedroom           | Wall 3             | 2.56  | 1.77  | 4.5312    |
+
+## Totals (active rows, 1 coat)
+
+| Colour      | Area (m2) | L @10 m2/L | L @12 m2/L |
+|-------------|-----------|------------|------------|
+| Sunny green | 50.71     | 5.07       | 4.23       |
+| Beige       | 26.11     | 2.61       | 2.18       |
+| Dark green  | 28.78     | 2.88       | 2.40       |
+| Light green | 19.05     | 1.90       | 1.59       |
+| Total       | 124.64    | 12.46      | 10.39      |
+
+## Undecided colour (sunny green, beige, or a mix; not in totals above)
+
+| ID | Status | Room       | Wall           | W (m) | H (m) | Area (m2) |
+|----|--------|------------|----------------|-------|-------|-----------|
+| 19 | active | Entry      | Wall           | 2.33  | 2.66  | 6.1978    |
+| 20 | active | Entry      | Small sections | 1.50  | 2.66  | 3.9900    |
+| 21 | active | 1F Hallway | Walls          | 5.00  | 2.65  | 13.2500   |
+
+| Section    | Area (m2) | L @10 m2/L | L @12 m2/L |
+|------------|-----------|------------|------------|
+| Entry      | 10.19     | 1.02       | 0.85       |
+| 1F Hallway | 13.25     | 1.33       | 1.10       |
+| Total      | 23.44     | 2.34       | 1.95       |
+
+## Shopping list (1 coat, 10 m2/L)
+
+Prices, custom mixed (EUR):
+
+| Tin   | Regular | Praxis Plus (-30%) |
+|-------|---------|--------------------|
+| 1 L   | 34.99   | 24.49              |
+| 2.5 L | 62.49   | 43.74              |
+| 5 L   | 116.49  | 81.54              |
+
+| Colour      | Need (L) | Buy (L) | Tins        | Cost (EUR) | Also covers                        |
+|-------------|----------|---------|-------------|------------|------------------------------------|
+| Sunny green | 5.07     | 7.5     | 5 L + 2.5 L | 125.28     | Entry + 1F Hallway (7.41 L in all) |
+| Beige       | 2.61     | 5       | 1 x 5 L     | 81.54      | Entry + 1F Hallway (4.96 L in all) |
+| Dark green  | 2.88     | 5       | 1 x 5 L     | 81.54      |                                    |
+| Light green | 1.90     | 2.5     | 1 x 2.5 L   | 43.74      |                                    |
+| Total       |          | 20      |             | 332.10     |                                    |
+
+## Log
+
+| Date       | Change                                                              |
+|------------|---------------------------------------------------------------------|
+| 2026-11-07 | Rows 01-09 added.                                                   |
+| 2026-11-07 | 03: colour beige -> sunny green.                                    |
+| 2026-11-07 | Rows 10-11 added.                                                   |
+| 2026-11-07 | Rows 12-15 added (office, 3.02 x 2.41 m, height 2.65 m).            |
+| 2026-11-07 | Rows 16-18 added (bedroom, 4.10 / 4.10 / 2.56 m, height 1.77 m).    |
+| 2026-11-07 | Coats set to 2; totals converted to litres for 2 coats.             |
+| 2026-11-07 | Rows 19-20 added (entry, colour undecided); 1F Hallway opened.      |
+| 2026-11-07 | Row 21 added (1F hallway, 5.00 x 2.65 m).                           |
+| 2026-11-07 | Product set to Extra Mat; tin sizes recorded; shopping list added.  |
+| 2026-11-07 | Prices added; shopping list costed.                                 |
+| 2026-11-07 | Coats set to 1; totals and shopping list recalculated.              |
+| 2026-11-07 | Dark green purchase set to 1 x 5 L.                                 |
+| 2026-11-07 | Colors section added; all sections converted to markdown headings.  |
+| 2026-11-07 | Colors replaced with verified Praxis sRGB values; NCS/RAL removed.  |
+| 2026-11-08 | Candidates reworked: RAL alternatives added; Helmgras, Lush Olive, Sandy Beach dropped; Vol Salie -> dark green, Airy Foliage -> light green. |
